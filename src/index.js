@@ -23,16 +23,17 @@ import ReactDOM from 'react-dom';
 // };
 
 const App = props => {
-  const [counter, setCounter] = useState(0);
-  // double arrow functoin = currying(カリー化)
-  const setToValue = value => () => setCounter(value);
+  const [left, setLeft] = useState(0);
+  const [right, setRight] = useState(0);
 
   return (
     <div>
-      <Display counter={counter} />
-      <Button onClick={setToValue(counter + 1)} text={'plus'} />
-      <Button onClick={setToValue(counter - 1)} text={'minus'} />
-      <Button onClick={setToValue(0)} text={'zero'} />
+      <div>
+        {left}
+        <button onClick={() => setLeft(left + 1)}>left</button>
+        {right}
+        <button onClick={() => setRight(right + 1)}>right</button>
+      </div>
     </div>
   );
 };
