@@ -18,6 +18,10 @@ const Display = ({ counter }) => {
   return <div>{counter}</div>;
 };
 
+const Button = props => {
+  return <button onClick={props.onClick}>{props.text}</button>;
+};
+
 const App = props => {
   const [counter, setCounter] = useState(0);
   // double arrow functoin = currying(カリー化)
@@ -26,8 +30,9 @@ const App = props => {
   return (
     <div>
       <Display counter={counter} />
-      <button onClick={setToValue(counter + 1)}>plus</button>
-      <button onClick={setToValue(0)}>reset</button>
+      <Button onClick={setToValue(counter + 1)} text={'plus'} />
+      <Button onClick={setToValue(counter - 1)} text={'minus'} />
+      <Button onClick={setToValue(0)} text={'zero'} />
     </div>
   );
 };
