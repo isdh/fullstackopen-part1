@@ -16,8 +16,7 @@ const Hello = ({ name, age }) => {
 
 const App = props => {
   const [counter, setCounter] = useState(0);
-
-  // double arrow functoin
+  // double arrow functoin = currying(カリー化)
   const setToValue = value => () => setCounter(value);
 
   return (
