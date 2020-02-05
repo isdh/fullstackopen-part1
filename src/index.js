@@ -14,17 +14,18 @@ const Hello = ({ name, age }) => {
   );
 };
 
-const App = () => {
-  const name = 'Peter';
-  const age = 10;
-
-  return (
-    <>
-      <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} />
-      <Hello name={name} age={age} />
-    </>
-  );
+const App = props => {
+  const { counter } = props;
+  return <div>{counter}</div>;
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+let counter = 1;
+
+const refresh = () => {
+  ReactDOM.render(<App counter={counter} />, document.getElementById('root'));
+};
+
+setInterval(() => {
+  refresh();
+  counter++;
+}, 1000);
